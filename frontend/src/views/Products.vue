@@ -137,7 +137,6 @@
                       </div>
                       <input
                         class="inputDetail placeholder-gray-500 placeholder-opacity-50 focus:outline-none focus:ring-grayFigma focus:border-transparent focus:ring-2 rounded border border-grayFigma"
-                        type="number"
                         placeholder="Price"
                         v-model="price"
                         min="0"

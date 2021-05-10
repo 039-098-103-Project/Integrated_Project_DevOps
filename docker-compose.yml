@@ -1,0 +1,42 @@
+version: '3'
+services:
+    database:
+        build: ./database
+        restart: always
+        container_name: mysql
+        volumes:
+            - ./database/scriptmysql/mysql-data:/var/lib/mysql
+            - ./database/scriptmysql/:/docker-entrypoint-initdb.d
+        
+    backend:
+        build: ./backend
+        restart: always
+        volumes: 
+            - ./backend/public/product-images:/public/product-images
+        container_name: backend
+        depends_on: 
+            - database
+    frontend:
+        build: ./frontend
+        restart: always
+        container_name: frontend
+        depends_on: 
+            - database
+            - backend
+    reverseproxy:
+        image: nginx
+        restart: always
+        container_name: reverse_proxy
+        volumes: 
+            - ./reverseproxy/nginx.conf:/etc/nginx/conf.d/default.conf
+        depends_on: 
+            - database
+            - backend
+            - frontend
+        ports: 
+            - "80:80"
+
+networks:
+    default:
+      external:
+        name: project

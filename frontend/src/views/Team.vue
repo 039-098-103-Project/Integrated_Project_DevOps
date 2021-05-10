@@ -16,14 +16,14 @@
       <div class="member">
         <img src="../../src/assets/Teams/gift.jpg" />
         <h1>Database and Devops-Network</h1>
-        <h2>62130500039</h2>
-        <h2 class="">Thanyaluck Ngamchaipisit</h2>
+        <h2>62130500098</h2>
+        <h2 class="">Sunanta Singka</h2>
       </div>
       <div class="member">
         <img src="../../src/assets/Teams/mel.jpg" />
         <h1>Front-End And Network</h1>
-        <h2>62130500039</h2>
-        <h2 class="">Thanyaluck Ngamchaipisit</h2>
+        <h2>62130500103</h2>
+        <h2 class="">Apisara Ngakor</h2>
       </div>
     </div>
   </div>

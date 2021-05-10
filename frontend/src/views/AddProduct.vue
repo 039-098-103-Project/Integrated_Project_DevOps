@@ -54,8 +54,8 @@
                 <input
                   class="inputDetail placeholder-gray-500 placeholder-opacity-50 border border-grayFigma focus:outline-none focus:ring-beer focus:border-transparent focus:ring-2 px-4 rounded"
                   type="number"
-                  placeholder=""
                   v-model="productPrice"
+                  step="0.25"
                   min="0"
                   max="999.99"
                 />
@@ -269,7 +269,7 @@ export default {
       ) {
         return;
       }
-      this.inputPrice = parseFloat(this.productPrice);
+      // this.inputPrice = parseFloat(this.productPrice);
       this.addProduct();
     },
 

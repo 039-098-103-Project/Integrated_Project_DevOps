@@ -147,7 +147,7 @@ export default {
     return {
       picture: null,
       check: false,
-      url: "http://localhost:5000/products",
+      // url: "http://localhost:5000/products",
       inputName: false,
       inputPrice: false,
       inputColor: false,
@@ -332,7 +332,7 @@ export default {
   created() {
     this.getData();
     this.getBagType();
-    this.getProduct();
+    this.currentProduct = this.getProduct();
   },
 
   // async created() {

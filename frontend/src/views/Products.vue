@@ -245,7 +245,7 @@ export default {
     return {
       products: [],
       popupProduct: [],
-      url: "http://localhost:5000/products",
+      // url: "http://localhost:5000/products",
       imageName: "",
       price: null,
       productName: "",
@@ -513,7 +513,8 @@ export default {
   //   this.currentProduct = await this.getProduct();
   // },
   created() {
-    this.getProduct();
+    this.products = this.getProduct();
+    this.currentProduct = this.getProduct();
     this.getData();
     this.getBagType();
   },

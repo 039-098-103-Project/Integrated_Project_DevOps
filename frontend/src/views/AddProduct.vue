@@ -236,7 +236,6 @@ export default {
       console.log(this.colorsSelect);
       this.inputDate = this.productDate === "" ? true : false;
       this.inputDescription = this.productDescription === "" ? true : false;
-      console.log(this.checkDuplicateName(this.inputName));
       if (
         this.inputName ||
         this.inputPrice ||

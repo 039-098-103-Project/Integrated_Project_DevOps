@@ -131,7 +131,6 @@
                       />
                     </div>
                     <sup v-show="inputName"> Please enter product name! </sup>
-                    <sup v-show="hasDuplicate"> Duplicate name! </sup>
                     <div class="">
                       <div>
                         <p class="title">Price</p>
@@ -260,8 +259,6 @@ export default {
       selectColor: [],
       selectType: null,
       submitEdit: null,
-      currentProduct: [],
-      hasDuplicate: false,
       imgFile: null,
       preview: null,
     };
@@ -321,14 +318,6 @@ export default {
       });
     },
 
-    checkDuplicateName(name) {
-      let duplicate = this.currentProduct.filter((p) => p.productName == name);
-      console.log(duplicate.length);
-      console.log(name);
-      if (duplicate.length > 0) {
-        return true;
-      } else return false;
-    },
 
     submitFrom() {
       this.inputName = this.productName === "" ? true : false;
@@ -339,10 +328,6 @@ export default {
       console.log(this.colorsSelect);
       this.inputDate = this.productDate === "" ? true : false;
       this.inputDescription = this.productDescreiption === "" ? true : false;
-      if (this.checkDuplicateName(this.productName)) {
-        this.hasDuplicate = true;
-        return;
-      }
       if (
         this.inputName ||
         this.inputPrice ||
@@ -513,8 +498,7 @@ export default {
   //   this.currentProduct = await this.getProduct();
   // },
   created() {
-    this.products = this.getProduct();
-    this.currentProduct = this.getProduct();
+    this.getProduct();
     this.getData();
     this.getBagType();
   },

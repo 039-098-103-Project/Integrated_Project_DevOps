@@ -132,13 +132,13 @@ Insert into ProductDetail values (11, 6);
 Insert into ProductDetail values (11, 8);
 Insert into ProductDetail values (12, 7);
 Insert into ProductDetail values (12, 10);
-Drop user if exists 'backend'@'172.22.0.3';
+Drop user if exists 'backend'@'%';
 
-create user 'backend'@'172.22.0.3' identified by 'GJM039098103';
-grant select, insert, update, delete on Product to 'backend'@'172.22.0.3';
-grant select, insert, update, delete on ProductDetail to 'backend'@'172.22.0.3';
-grant select on Color to 'backend'@'172.22.0.3';
-grant select on BagType to 'backend'@'172.22.0.3';
+create user 'backend'@'%' identified by 'GJM039098103';
+grant select, insert, update, delete on Product to 'backend'@'%';
+grant select, insert, update, delete on ProductDetail to 'backend'@'%';
+grant select on Color to 'backend'@'%';
+grant select on BagType to 'backend'@'%';
 -- Oracle SQL Developer Data Modeler Summary Report: 
 -- 
 -- CREATE TABLE                             4

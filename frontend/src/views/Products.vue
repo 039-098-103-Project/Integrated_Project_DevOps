@@ -243,7 +243,6 @@ export default {
     return {
       products: [],
       popupProduct: [],
-      // url: "http://localhost:5000/products",
       imageName: "",
       price: null,
       productName: "",
@@ -264,15 +263,6 @@ export default {
   },
 
   methods: {
-    // async getProduct() {
-    //   try {
-    //     const res = await fetch(this.url);
-    //     const data = await res.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(`Could not get! ${error}`);
-    //   }
-    // },
     getProduct() {
       ProductDataService.getAllProduct().then((res) => {
         this.products = res.data;
@@ -281,15 +271,7 @@ export default {
     getProductImg(imageName) {
       return "http://13.76.186.187/backend/img/" + imageName;
     },
-    // async getData() {
-    //   try {
-    //     const response = await fetch("http://localhost:5000/colors");
-    //     const data = await response.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
+
     getData() {
       ProductDataService.getColors().then((res) => {
         this.colors = res.data;
@@ -301,15 +283,6 @@ export default {
       this.preview = null;
     },
 
-    // async getBagType() {
-    //   try {
-    //     const response = await fetch("http://localhost:5000/bagType");
-    //     const data = await response.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
 
     getBagType() {
       ProductDataService.getBagTypes().then((res) => {
@@ -320,8 +293,6 @@ export default {
 
     submitFrom() {
       this.inputName = this.productName === "" ? true : false;
-      // this.inputPrice =
-      // this.productPrice === null || this.productPrice === "" ? true : false;
       this.inputColor = this.colorsSelect.length == 0 ? true : false;
       this.inputType = this.selectType === null ? true : false;
       console.log(this.colorsSelect);
@@ -337,7 +308,6 @@ export default {
       ) {
         return;
       }
-      // this.inputPrice = parseFloat(this.productPrice);
       this.addProduct();
     },
 
@@ -361,19 +331,6 @@ export default {
       reader.readAsDataURL(file);
     },
 
-    // async showProduct(id) {
-    //   try {
-    //     console.log(id);
-    //     this.popupProduct = [];
-    //     const res = await fetch(`${this.url}/${id}`);
-    //     const data = await res.json();
-    //     this.popupProduct.push(data);
-    //     this.clickShow();
-    //     return this.popupProduct;
-    //   } catch (error) {
-    //     console.log(`Could not show member info! ${error}`);
-    //   }
-    // },
     showProduct(id) {
       this.popupProduct = [];
       var tmp = [];
@@ -397,44 +354,6 @@ export default {
       this.submitEdit = product;
     },
 
-    // async editSubmit(editing) {
-    //   const res = await fetch(`${this.url}/${editing.id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //       "Content-type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       productName: this.productName,
-    //       price: this.price,
-    //       bagType: this.selectType,
-    //       productDescrip: this.productDescrip,
-    //       inStockDate: this.inStockDate,
-    //       colors: this.selectColor,
-    //     }),
-    //   });
-    //   const data = await res.json();
-    //   this.products = this.products.map((product) =>
-    //     product.id === data.id
-    //       ? {
-    //           ...product,
-    //           productName: data.productName,
-    //           price: data.price,
-    //           productDescrip: data.productDescrip,
-    //           productType: data.selectType,
-    //           colors: data.colors,
-    //           inStockDate: data.inStockDate,
-    //         }
-    //       : product
-    //   );
-    //   (this.productName = ""),
-    //     (this.price = null),
-    //     (this.productType = ""),
-    //     (this.productDescrip = ""),
-    //     (this.colors = []),
-    //     (this.inStockDate = null),
-    //     (this.edit = false),
-    //     (this.editSubmit = null);
-    // },
     editSubmit(editing) {
       const formData = new FormData();
       let pid = editing.productId;
@@ -468,18 +387,7 @@ export default {
       this.clickShow();
     },
 
-    // async deleteProduct(id) {
-    //   if (confirm(`Are you sure to delete ?`)) {
-    //     const res = await fetch(`${this.url}/${id}`, {
-    //       method: "DELETE",
-    //     });
-    //     res.status === 200
-    //       ? (this.products = this.products.filter(
-    //           (product) => product.id !== id
-    //         ))
-    //       : alert("Error to delete product");
-    //   }
-    // },
+
     deleteProduct(id) {
       ProductDataService.deleteProduct(id).then((res) => {
         res.status === 200
@@ -490,12 +398,6 @@ export default {
     },
   },
 
-  // async created() {
-  //   this.products = await this.getProduct();
-  //   this.colors = await this.getData();
-  //   this.bagType = await this.getBagType();
-  //   this.currentProduct = await this.getProduct();
-  // },
   created() {
     this.getProduct();
     this.getData();
@@ -612,14 +514,14 @@ img {
 button {
   @apply px-4 py-1.5 rounded;
 }
-.edit {
+/* .edit {
   font-size: 10px;
-  @apply flex justify-center;
+  @apply flex justify-center px-2 py-1 rounded md:px-4 md:py-2 ;
 }
 .delete {
   font-size: 10px;
-  @apply flex justify-center;
-}
+  @apply flex justify-center px-2 py-1 rounded md:px-4 md:py-2;
+} */
 
 .checkbox {
   display: flex;

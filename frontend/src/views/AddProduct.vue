@@ -28,7 +28,6 @@
           @change="selectFile"
           class="hidden form-control-file"
         />
-        {{ imageName }}
       </label>
 
       <div class="content">
@@ -146,7 +145,6 @@ export default {
     return {
       picture: null,
       check: false,
-      // url: "http://localhost:5000/products",
       inputName: false,
       inputPrice: false,
       inputColor: false,
@@ -181,45 +179,17 @@ export default {
       reader.readAsDataURL(file);
     },
 
-    // async getData() {
-    //   try {
-    //     const response = await fetch("http://localhost:5000/colors");
-    //     const data = await response.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
     getData() {
       ProductDataService.getColors().then((res) => {
         this.productColor = res.data;
       });
     },
 
-    // async getBagType() {
-    //   try {
-    //     const response = await fetch("http://localhost:5000/bagType");
-    //     const data = await response.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(error);
-    //   }
-    // },
     getBagType() {
       ProductDataService.getBagTypes().then((res) => {
         this.productType = res.data;
       });
     },
-
-    // async getProduct() {
-    //   try {
-    //     const res = await fetch(this.url);
-    //     const data = await res.json();
-    //     return data;
-    //   } catch (error) {
-    //     console.log(`Could not get! ${error}`);
-    //   }
-    // },
 
     checkColor() {
       this.check = !this.check;
@@ -246,38 +216,10 @@ export default {
       ) {
         return;
       }
-      // this.inputPrice = parseFloat(this.productPrice);
       this.addProduct();
     },
 
-    // async addProduct() {
-    //   try {
-    //     const res = await fetch(this.url, {
-    //       method: "POST",
-    //       headers: { "Content-type": "application/json" },
-    //       body: JSON.stringify({
-    //         productName: this.productName,
-    //         price: this.productPrice,
-    //         inStockDate: this.productDate,
-    //         productDescrip: this.productDescription,
-    //         imageName: this.picture,
-    //         bagType: this.selectType,
-    //         colors: this.colorsSelect,
-    //       }),
-    //     });
-
-    //     const data = await res.json();
-    //     this.products = [...this.products, data];
-    //     this.productName = "";
-    //     this.productPrice = null;
-    //     this.productDescription = "";
-    //     this.productType = "";
-    //     this.productColor = [];
-    //     this.imageName = null;
-    //   } catch (error) {
-    //     console.log(`Could not save! ${error}`);
-    //   }
-    // },
+   
     addProduct() {
       const formData = new FormData();
       let data = {
@@ -310,13 +252,6 @@ export default {
     this.getData();
     this.getBagType();
   },
-
-  // async created() {
-  //   // this.products = await this.getProduct();
-  //   this.productColor = await this.getData();
-  //   this.productType = await this.getBagType();
-  //   this.currentProduct = await this.getProduct();
-  // },
 
   }
 </script>

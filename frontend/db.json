@@ -157,6 +157,28 @@
           "colorId": 1
         }
       ]
+    },
+    {
+      "productName": "fbf",
+      "price": "100000",
+      "inStockDate": "2021-05-26",
+      "productDescrip": "nl,",
+      "imageName": null,
+      "bagType": {
+        "id": 1,
+        "bagTypeName": "Mini Flap Bag"
+      },
+      "colors": [
+        {
+          "colorName": "#ffbfcb",
+          "id": 4
+        },
+        {
+          "colorName": "#FFF3E4",
+          "id": 6
+        }
+      ],
+      "id": 12
     }
   ],
   "colors": [
